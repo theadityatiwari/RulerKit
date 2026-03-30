@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <declare-styleable name="RulerPickerView">
+
+        <!-- ═══════════════════════════════════════════
+             INPUT TYPE & RANGE
+             ═══════════════════════════════════════════ -->
+
+        <!--
+            What the ruler is measuring.
+            Drives all defaults (range, step, unit label, tick grouping).
+            Use "custom" to fully control min/max/step yourself.
+        -->
+        <attr name="rulerInputType" format="enum">
+            <enum name="weight"   value="0" />
+            <enum name="height"   value="1" />
+            <enum name="distance" value="2" />
+            <enum name="custom"   value="3" />
+        </attr>
+
+        <!--
+            Unit for the selected input type.
+            Only relevant units per type:
+              weight   → kg | lb
+              height   → cm | inch
+              distance → km | miles | meters
+            Ignored when rulerInputType="custom".
+        -->
+        <attr name="rulerUnit" format="enum">
+            <!-- Weight -->
+            <enum name="kg"     value="0" />
+            <enum name="lb"     value="1" />
+            <!-- Height -->
+            <enum name="cm"     value="2" />
+            <enum name="inch"   value="3" />
+            <!-- Distance -->
+            <enum name="km"     value="4" />
+            <enum name="miles"  value="5" />
+            <enum name="meters" value="6" />
+        </attr>
+
+        <!--
+            Override the minimum selectable value.
+            If not set, uses the selected unit's built-in default.
+            e.g. KG default min = 0, CM default min = 50.
+        -->
+        <attr name="rulerMinValue" format="float" />
+
+        <!--
+            Override the maximum selectable value.
+            If not set, uses the selected unit's built-in default.
+            e.g. KG default max = 250, CM default max = 250.
+        -->
+        <attr name="rulerMaxValue" format="float" />
+
+        <!--
+            The value the ruler shows on first draw.
+            Clamped to [rulerMinValue..rulerMaxValue].
+            If not set, defaults to rulerMinValue.
+        -->
+        <attr name="rulerInitialValue" format="float" />
+
+        <!-- Only used when rulerInputType="custom": step size per minor tick. -->
+        <attr name="rulerCustomStep" format="float" />
+
+        <!-- Only used when rulerInputType="custom": unit label shown next to value (e.g. "pts"). -->
+        <attr name="rulerCustomUnitLabel" format="string" />
+
+        <!--
+            Only used when rulerInputType="custom":
+            draw a major (tallest) tick every N minor ticks.
+        -->
+        <attr name="rulerCustomMajorEvery" format="integer" />
+
+        <!--
+            Only used when rulerInputType="custom":
+            draw a medium tick every N minor ticks.
+        -->
+        <attr name="rulerCustomMediumEvery" format="integer" />
+
+        <!-- ═══════════════════════════════════════════
+             INDICATOR
+             ═══════════════════════════════════════════ -->
+
+        <!-- Shape of the center indicator that marks the selected value. -->
+        <attr name="indicatorType" format="enum">
+            <enum name="line"     value="0" />
+            <enum name="triangle" value="1" />
+            <enum name="arrow"    value="2" />
+            <enum name="pin"      value="3" />
+        </attr>
+
+        <!--
+            Whether the indicator sits above or below the tick marks.
+            centerTop    → indicator is above the ruler, tip points down.
+            centerBottom → indicator is below the ruler, tip points up.
+        -->
+        <attr name="indicatorPosition" format="enum">
+            <enum name="centerTop"    value="0" />
+            <enum name="centerBottom" value="1" />
+        </attr>
+
+        <!-- Indicator fill/stroke color. -->
+        <attr name="indicatorColor" format="color" />
+
+        <!--
+            Height of the indicator tip in dp.
+            LINE     → total line height.
+            TRIANGLE → tip-to-base distance.
+            ARROW    → tip-to-base distance (stem is separate).
+            PIN      → circle diameter (stem is separate).
+        -->
+        <attr name="indicatorSize" format="dimension" />
+
+        <!-- Stroke width of the indicator in dp. Applies to LINE and ARROW stem. -->
+        <attr name="indicatorWidth" format="dimension" />
+
+        <!-- ═══════════════════════════════════════════
+             TICK LINES — MAJOR  (every N major steps)
+             ═══════════════════════════════════════════ -->
+
+        <!-- Height of major ticks in dp. -->
+        <attr name="majorLineHeight" format="dimension" />
+
+        <!-- Stroke width of major ticks in dp. -->
+        <attr name="majorLineWidth" format="dimension" />
+
+        <!-- Color of major ticks. -->
+        <attr name="majorLineColor" format="color" />
+
+        <!-- ═══════════════════════════════════════════
+             TICK LINES — MEDIUM  (every N medium steps)
+             ═══════════════════════════════════════════ -->
+
+        <!-- Height of medium ticks in dp. -->
+        <attr name="mediumLineHeight" format="dimension" />
+
+        <!-- Stroke width of medium ticks in dp. -->
+        <attr name="mediumLineWidth" format="dimension" />
+
+        <!-- Color of medium ticks. -->
+        <attr name="mediumLineColor" format="color" />
+
+        <!-- ═══════════════════════════════════════════
+             TICK LINES — MINOR  (every step)
+             ═══════════════════════════════════════════ -->
+
+        <!-- Height of minor (smallest) ticks in dp. -->
+        <attr name="minorLineHeight" format="dimension" />
+
+        <!-- Stroke width of minor ticks in dp. -->
+        <attr name="minorLineWidth" format="dimension" />
+
+        <!-- Color of minor ticks. -->
+        <attr name="minorLineColor" format="color" />
+
+        <!-- ═══════════════════════════════════════════
+             LABELS  (numbers below/above major ticks)
+             ═══════════════════════════════════════════ -->
+
+        <!-- Whether to draw number labels next to major ticks. Default: true. -->
+        <attr name="showLabels" format="boolean" />
+
+        <!-- Text size of tick labels in sp. -->
+        <attr name="labelTextSize" format="dimension" />
+
+        <!-- Color of tick labels. -->
+        <attr name="labelTextColor" format="color" />
+
+        <!-- ═══════════════════════════════════════════
+             SELECTED VALUE DISPLAY
+             ═══════════════════════════════════════════ -->
+
+        <!--
+            Whether to draw the selected value + unit label
+            above/below the ruler (opposite side from indicator). Default: true.
+        -->
+        <attr name="showValueLabel" format="boolean" />
+
+        <!-- Text size of the selected value display in sp. -->
+        <attr name="valueLabelTextSize" format="dimension" />
+
+        <!-- Color of the selected value display text. -->
+        <attr name="valueLabelTextColor" format="color" />
+
+        <!-- ═══════════════════════════════════════════
+             LAYOUT & SPACING
+             ═══════════════════════════════════════════ -->
+
+        <!-- Background color of the ruler view. -->
+        <attr name="rulerBackgroundColor" format="color" />
+
+        <!--
+            Horizontal distance between consecutive minor ticks in dp.
+            Increase for a wider/more spread-out ruler.
+            Decrease for a denser ruler.
+            Default: 12dp.
+        -->
+        <attr name="tickSpacing" format="dimension" />
+
+        <!-- ═══════════════════════════════════════════
+             BEHAVIOR
+             ═══════════════════════════════════════════ -->
+
+        <!--
+            If true, the ruler is flipped: ticks extend upward, value label is at bottom.
+            Useful when the view is pinned to the bottom of the screen.
+            Default: false.
+        -->
+        <attr name="flipVertically" format="boolean" />
+
+        <!--
+            If true, the device vibrates lightly each time the value
+            crosses a step boundary while scrolling. Default: true.
+        -->
+        <attr name="enableHapticFeedback" format="boolean" />
+
+    </declare-styleable>
+
+</resources>

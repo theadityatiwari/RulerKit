@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- Required for haptic feedback via Vibrator.vibrate().
+         Merged into the host app's manifest automatically. -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+</manifest>

@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:paddingBottom="32dp">
+
+        <!-- ── Section: Weight ── -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Weight"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:paddingStart="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp" />
+
+        <com.nativeknights.rulerkit.RulerPickerView
+            android:id="@+id/rulerWeight"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            app:rulerInputType="weight"
+            app:rulerUnit="kg"
+            app:rulerInitialValue="70"
+            app:indicatorType="triangle"
+            app:indicatorColor="#E91E63"
+            app:rulerBackgroundColor="#FFFFFF" />
+
+        <!-- kg / lb toggle -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_toggle_group"
+            android:padding="4dp">
+
+            <Button
+                android:id="@+id/btnKg"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="88dp"
+                android:layout_height="36dp"
+                android:text="kg"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnLb"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="88dp"
+                android:layout_height="36dp"
+                android:text="lb"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <!-- ── Section: Height ── -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Height"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:paddingStart="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp" />
+
+        <com.nativeknights.rulerkit.RulerPickerView
+            android:id="@+id/rulerHeight"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            app:rulerInputType="height"
+            app:rulerUnit="cm"
+            app:rulerInitialValue="170"
+            app:indicatorType="arrow"
+            app:indicatorColor="#2196F3"
+            app:majorLineColor="#1565C0"
+            app:rulerBackgroundColor="#FFFFFF" />
+
+        <!-- cm / inch toggle -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp"
+            android:orientation="horizontal"
+            android:background="@drawable/bg_toggle_group"
+            android:padding="4dp">
+
+            <Button
+                android:id="@+id/btnCm"
+                style="@style/Widget.Material3.Button.TonalButton"
+                android:layout_width="88dp"
+                android:layout_height="36dp"
+                android:text="cm"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/btnInch"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="88dp"
+                android:layout_height="36dp"
+                android:text="inch"
+                android:textAllCaps="false" />
+        </LinearLayout>
+
+        <!-- ── Section: Custom (Age) ── -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Age (custom ruler)"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:paddingStart="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp" />
+
+        <com.nativeknights.rulerkit.RulerPickerView
+            android:id="@+id/rulerAge"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            app:rulerInputType="custom"
+            app:rulerMinValue="1"
+            app:rulerMaxValue="120"
+            app:rulerCustomStep="1"
+            app:rulerCustomUnitLabel="yrs"
+            app:rulerCustomMajorEvery="10"
+            app:rulerCustomMediumEvery="5"
+            app:rulerInitialValue="25"
+            app:indicatorType="pin"
+            app:indicatorColor="#4CAF50"
+            app:majorLineColor="#2E7D32"
+            app:rulerBackgroundColor="#FFFFFF"
+            app:tickSpacing="18dp" />
+
+        <!-- ── Section: Distance (flipped) ── -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Distance · flipped"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:paddingStart="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp" />
+
+        <com.nativeknights.rulerkit.RulerPickerView
+            android:id="@+id/rulerDistance"
+            android:layout_width="match_parent"
+            android:layout_height="160dp"
+            app:rulerInputType="distance"
+            app:rulerUnit="km"
+            app:rulerInitialValue="5"
+            app:indicatorType="line"
+            app:indicatorColor="#FF5722"
+            app:flipVertically="true"
+            app:rulerBackgroundColor="#FFFFFF" />
+
+        <!-- Selected value readout -->
+        <TextView
+            android:id="@+id/tvSelectedValue"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Scroll any ruler to see the selected value"
+            android:textSize="14sp"
+            android:textColor="#616161"
+            android:textAlignment="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="4dp" />
+
+    </LinearLayout>
+</ScrollView>
