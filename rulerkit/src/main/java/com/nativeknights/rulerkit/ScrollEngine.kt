@@ -33,7 +33,8 @@ class ScrollEngine(config: RulerConfig) {
     // Config-derived state (updated on unit switch)
     // ─────────────────────────────────────────────
 
-    private var step: Float = config.inputType.unit.defaultStep
+    internal var step: Float = config.inputType.unit.defaultStep
+        private set
 
     /** Effective minimum value (resolved from config). */
     var min: Float = config.effectiveMin
@@ -264,6 +265,18 @@ class ScrollEngine(config: RulerConfig) {
         max  = config.effectiveMax
         val newValue = convertedValue ?: currentValue.coerceIn(min, max)
         setValue(newValue)
+    }
+
+    // ─────────────────────────────────────────────
+    // Compose bridge
+    // ─────────────────────────────────────────────
+
+    /**
+     * Sync the internal raw value to match an external animated position (used by [RulerPicker]).
+     * Does NOT snap — just clamps and stores. Call this from a SideEffect or draw block.
+     */
+    internal fun syncRaw(value: Float) {
+        rawValue = value.coerceIn(min, max)
     }
 
     // ─────────────────────────────────────────────

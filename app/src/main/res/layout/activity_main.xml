@@ -171,6 +171,24 @@
             app:flipVertically="true"
             app:rulerBackgroundColor="#FFFFFF" />
 
+        <!-- ── Section: Compose ── -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Weight · Compose"
+            android:textSize="12sp"
+            android:textColor="#9E9E9E"
+            android:textAllCaps="true"
+            android:letterSpacing="0.1"
+            android:paddingStart="20dp"
+            android:paddingTop="24dp"
+            android:paddingBottom="8dp" />
+
+        <androidx.compose.ui.platform.ComposeView
+            android:id="@+id/composeRuler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
         <!-- Selected value readout -->
         <TextView
             android:id="@+id/tvSelectedValue"
