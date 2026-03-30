@@ -1,6 +1,6 @@
 # RulerKit
 
-[![](https://jitpack.io/v/nativeknights/RulerKit.svg)](https://jitpack.io/#nativeknights/RulerKit)
+[![](https://jitpack.io/v/theadityatiwari/RulerKit.svg)](https://jitpack.io/#theadityatiwari/RulerKit)
 
 A highly customizable horizontal ruler picker for Android. Supports weight, height, distance, and fully custom input types. Built on `Canvas` with smooth fling/snap animation, haptic feedback, and a clean public API ready for Jetpack Compose and Kotlin Multiplatform (KMP) in future phases.
 
@@ -22,7 +22,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation("com.github.nativeknights:RulerKit:1.0.0")
+    implementation("com.github.theadityatiwari:RulerKit:v1.0.0")
 }
 ```
 
