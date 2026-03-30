@@ -2,7 +2,7 @@
 
 [![](https://jitpack.io/v/theadityatiwari/RulerKit.svg)](https://jitpack.io/#theadityatiwari/RulerKit)
 
-A highly customizable horizontal ruler picker for Android. Supports weight, height, distance, and fully custom input types. Built on `Canvas` with smooth fling/snap animation, haptic feedback, and a clean public API ready for Jetpack Compose and Kotlin Multiplatform (KMP) in future phases.
+A highly customizable horizontal ruler picker for Android. Supports weight, height, distance, and fully custom input types. Available as both a classic **View** (`RulerPickerView`) and a native **Jetpack Compose** composable (`RulerPicker`). Built on `Canvas` with smooth fling/snap animation, haptic feedback, and automatic unit conversion.
 
 ---
 
@@ -28,7 +28,7 @@ dependencies {
 
 ---
 
-## Quick Start
+## View — Quick Start
 
 ### XML
 
@@ -97,7 +97,63 @@ ruler.config = RulerConfig.custom(
 
 ---
 
-## XML Attributes
+## Compose — Quick Start
+
+```kotlin
+val state = rememberRulerPickerState(RulerConfig.weight())
+
+RulerPicker(
+    state    = state,
+    modifier = Modifier.fillMaxWidth().height(160.dp),
+    onValueChanged = { value, unit ->
+        println("$value $unit")
+    },
+    onScrollEnd = { value, unit ->
+        println("Settled at $value $unit")
+    }
+)
+```
+
+### Unit switch
+
+```kotlin
+val scope = rememberCoroutineScope()
+
+Button(onClick = { scope.launch { state.setUnit(WeightUnit.LB) } }) {
+    Text("lb")
+}
+```
+
+### Programmatic value
+
+```kotlin
+scope.launch { state.setValue(75f, animate = true) }
+```
+
+### Custom config
+
+```kotlin
+val state = rememberRulerPickerState(
+    RulerConfig(
+        inputType      = InputType.Weight(WeightUnit.KG),
+        initialValue   = 70f,
+        indicatorType  = IndicatorType.ARROW,
+        indicatorColor = 0xFF2196F3.toInt(),
+        tickSpacingDp  = 14f
+    )
+)
+```
+
+### Read current value
+
+```kotlin
+val live    = state.currentValue   // updates every frame
+val settled = state.snappedValue   // stable after gesture ends
+```
+
+---
+
+## XML Attributes (View only)
 
 | Attribute | Values / Type | Default |
 |-----------|--------------|---------|
@@ -135,17 +191,20 @@ ruler.config = RulerConfig.custom(
 | `flipVertically` | boolean | `false` |
 | `enableHapticFeedback` | boolean | `true` |
 
+All `RulerConfig` properties are also available programmatically for both `RulerPickerView` and `RulerPicker`.
+
 ---
 
 ## Requirements
 
 - minSdk 24
 - Kotlin 2.x
+- Compose BOM 2024.09.00+ (for `RulerPicker`)
 - `android.permission.VIBRATE` is merged automatically from the library manifest
 
 ---
 
 ## Roadmap
 
-- **Phase 2** — Jetpack Compose (`RulerPicker` composable)
+- ~~**Phase 2** — Jetpack Compose (`RulerPicker` composable)~~ ✅ Done
 - **Phase 4** — Kotlin Multiplatform / Compose Multiplatform (iOS, Desktop)
