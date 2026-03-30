@@ -1,8 +1,30 @@
 # RulerKit
 
 [![](https://jitpack.io/v/theadityatiwari/RulerKit.svg)](https://jitpack.io/#theadityatiwari/RulerKit/v1.0.1)
+[![API](https://img.shields.io/badge/API-24%2B-brightgreen.svg)](https://android-arsenal.com/api?level=24)
+[![Kotlin](https://img.shields.io/badge/Kotlin-2.x-7F52FF?logo=kotlin&logoColor=white)](https://kotlinlang.org)
+[![Compose](https://img.shields.io/badge/Jetpack%20Compose-supported-4285F4?logo=jetpackcompose&logoColor=white)](https://developer.android.com/compose)
+[![License](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
 
-<img src="demo.gif" width="240" />
+---
+
+## Why RulerKit?
+
+Most ruler pickers are XML-only, don't support unit conversion, and lack Compose support. RulerKit does all three — with smooth fling/snap, haptic feedback, and a KMP-ready architecture out of the box.
+
+---
+
+## Used in Production
+
+Built from real-world experience building **[Mamily](https://play.google.com/store/apps/details?id=com.mamily.android)** — a 100K+ download health app on the Play Store.
+
+---
+
+## Input Types
+
+Weight · Height · Distance · Custom — all in one demo:
+
+<img src="demo.gif" width="320" />
 
 A highly customizable horizontal ruler picker for Android. Supports weight, height, distance, and fully custom input types. Available as both a classic **View** (`RulerPickerView`) and a native **Jetpack Compose** composable (`RulerPicker`). Built on `Canvas` with smooth fling/snap animation, haptic feedback, and automatic unit conversion.
 
