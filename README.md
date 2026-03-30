@@ -2,7 +2,7 @@
 
 [![](https://jitpack.io/v/theadityatiwari/RulerKit.svg)](https://jitpack.io/#theadityatiwari/RulerKit)
 
-![RulerKit Demo](demo.gif)
+<img src="demo.gif" width="240" />
 
 A highly customizable horizontal ruler picker for Android. Supports weight, height, distance, and fully custom input types. Available as both a classic **View** (`RulerPickerView`) and a native **Jetpack Compose** composable (`RulerPicker`). Built on `Canvas` with smooth fling/snap animation, haptic feedback, and automatic unit conversion.
 
