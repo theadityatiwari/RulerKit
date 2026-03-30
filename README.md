@@ -1,6 +1,6 @@
 # RulerKit
 
-[![](https://jitpack.io/v/theadityatiwari/RulerKit.svg)](https://jitpack.io/#theadityatiwari/RulerKit)
+[![](https://jitpack.io/v/theadityatiwari/RulerKit.svg)](https://jitpack.io/#theadityatiwari/RulerKit/v1.0.1)
 
 <img src="demo.gif" width="240" />
 
@@ -24,7 +24,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation("com.github.theadityatiwari.RulerKit:rulerkit:v1.0.1")
+    implementation("com.github.theadityatiwari:RulerKit:v1.0.1")
 }
 ```
 
