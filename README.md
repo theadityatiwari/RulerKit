@@ -24,7 +24,7 @@ dependencyResolutionManagement {
 
 ```kotlin
 dependencies {
-    implementation("com.github.theadityatiwari:RulerKit:v1.0.0")
+    implementation("com.github.theadityatiwari.RulerKit:rulerkit:v1.0.0")
 }
 ```
 
